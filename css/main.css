@@ -2535,7 +2535,7 @@ ul, li {
   flex-shrink: 0;
   max-width: 142px; }
   .header-logo img {
-    max-width: 100%; }
+    width: 100%; }
 
 .header-right {
   display: -webkit-flex;
@@ -2660,7 +2660,7 @@ ul, li {
   max-width: 99px;
   cursor: pointer; }
   .about-arrow img {
-    max-width: 100%; }
+    width: 100%; }
 
 .about-page__sect--2 {
   display: -webkit-flex;
@@ -3992,6 +3992,8 @@ ul, li {
   .main-page {
     height: 100%; }
   .header-search img {
-    width: 20.5px; } }
+    width: 20.5px; }
+  .main-page__left img {
+    width: 120%; } }
 
 /*# sourceMappingURL=maps/main.css.map */
