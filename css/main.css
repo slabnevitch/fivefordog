@@ -3783,7 +3783,10 @@ ul, li {
   .team-card {
     width: 16.66666%; }
   .we-want-right h3 {
-    font-size: 16px; } }
+    font-size: 16px; }
+  .ffd-form__label input[type="text"], .ffd-form__label textarea {
+    padding: 8px;
+    padding-top: 13px; } }
 
 @media only screen and (max-width: 860px) {
   .contacts-container__inner {
