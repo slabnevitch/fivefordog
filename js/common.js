@@ -40,12 +40,81 @@ $(function() {
 				// touchScroll:false,
 				// setHeights: false,
 				after: function(index, sections){
-		     // alert(index);
-			     $('.about-nav li').eq(index)
-			     .addClass('active')
-			     .siblings()
-			     .removeClass('active')
-	   		}
+			     	// alert(index);
+			     	console.log(sections[index].context);
+			     	// sections[index].context.classList.add('red');
+			     	console.log(index);
+				     $('.about-nav li').eq(index)
+				     .addClass('active')
+				     .siblings()
+				     .removeClass('active');
+
+
+				     if(index == 1){
+				     	$(sections[index].context).find(".to-animate").removeClass("zoomOutDown")
+				     	.addClass('zoomInUp');
+				     	console.log('ind = 1');
+
+				     	$(sections[index].context).find('.we-want-card')
+					     	.each(function(ind, elem) {
+					     		console.log(ind);
+					     		if(ind % 2 == 0){
+
+					     			$(elem).removeClass('fadeOutLeft')
+					     				.addClass('fadeInLeft');
+					     		}else{
+					     			$(elem).removeClass('fadeOutRight')
+					     			.addClass('fadeInRight');
+
+					     		}
+					     	});
+
+				     	$(sections[index].context).find('.about-page__sect-cover')
+				     		.removeClass('fadeOutLeft')
+				     		.addClass('fadeInLeft');
+
+				     }
+
+				     if(index == 2){
+				     	$(sections[index].context).find('h2')
+				     		.removeClass('fadeOutDown')
+				     		.addClass('fadeInUp');
+
+				     	$(sections[index].context).find('.working-card').each(function(ind, elem) {
+				     		console.log(ind);
+				     		if(ind % 2 == 0){
+
+				     			$(elem).removeClass('fadeOutUp')
+				     			.addClass('fadeInDown');
+				     		}else{
+				     			$(elem).removeClass('fadeOutDown')
+				     			.addClass('fadeInUp');
+
+				     		}
+				     	});
+				     }
+
+				     if(index == 3){
+				     	$(sections[index].context).find('.team-rectangle')
+				     		.removeClass('rollOut')
+				     		.addClass('rollIn');
+
+		     			$(sections[index].context).find('h2')
+				     		.removeClass('flipOutX')
+				     		.addClass('flipInX');
+
+				     	$(sections[index].context).find('.team-card').each(function(ind, elem) {
+			     			setTimeout(function() {
+				     			$(elem).removeClass('zoomOut')
+				     				.addClass('zoomIn');
+			     				
+			     			}, ind * 100);
+	
+				     	});
+
+
+				     }
+	   			}
 	    // scrollbars:false
 	  	});
 
@@ -175,15 +244,59 @@ $(function() {
 				direction: 'horizontal',
 				sectionContainer: "section",
 				loop: false,
-				animationTime: 800,
+				animationTime: 1300,
 				// responsiveFallback: 768,
 				pagination: false,
 				// easing: "cubic-bezier(0.175, 0.885, 0.420, 1.310)",
 				afterMove: function(index) {
-					console.log('section index ' + index);
-					range.noUiSlider.set(index);
-					$('.range-counter__current').text(index);
-				}
+					if(screen.width > 768){
+						var $currentSection = $('.portfolio-item').eq(index - 1);
+						
+						$currentSection
+							.find('.portfolio-item__title')
+							.removeClass('fadeOutDown')
+							.addClass('fadeInUp');
+
+						$currentSection
+							.find('.portfolio-item__description')
+							.removeClass('fadeOutUp')
+							.addClass('fadeInDown');
+
+						$currentSection
+							.find('.portfolio-item__logo')
+							.removeClass('zoomOutRight')
+							.addClass('zoomInRight');
+
+						console.log('section index ' + index);
+						range.noUiSlider.set(index);
+						$('.range-counter__current').text(index);
+						
+					}
+				},
+				 
+				 beforeMove: function(index) {
+				 	if(screen.width > 768){
+					 	var $currentSection = $('.portfolio-item').eq(index -1);
+
+					 	$currentSection
+					 		.siblings()
+							.find('.portfolio-item__title')
+							.removeClass('fadeInUp')
+							.addClass('fadeOutDown');
+
+						$currentSection
+							.siblings()
+							.find('.portfolio-item__description')
+							.removeClass('fadeInDown')
+							.addClass('fadeInDown fadeOutUp');
+
+						$currentSection
+							.siblings()
+							.find('.portfolio-item__logo')
+							.removeClass('zoomInRight')
+							.addClass('zoomOutRight');
+					}	
+				 }
 			});
 			$(".main").moveTo(1);
 
