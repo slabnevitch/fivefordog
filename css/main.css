@@ -5008,10 +5008,12 @@ body {
   font-size: 21px;
   text-transform: uppercase;
   outline: none;
-  -webkit-transition: all .1s ease-in;
-  transition: all .1s ease-in; }
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in; }
   .button:hover {
-    opacity: .7; }
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2); }
 
 .ffd-magenta-link {
   font-size: 21px;
@@ -6241,6 +6243,7 @@ ul, li {
     .footer-menu li a:before {
       content: "";
       background: #000;
+      opacity: .7;
       position: absolute;
       width: 5px;
       height: 100%;
@@ -6258,10 +6261,8 @@ ul, li {
       transform-origin: left center;
       z-index: -1; }
     .footer-menu li a:hover:before, .footer-menu li a:focus:before {
-      animation: .5s forwards hover-v linear;
-      -webkit-animation: .5s forwards hover-v linear;
-      animation-fill-mode: forwards;
-      -webkit-animation-fill-mode: forwards; }
+      -webkit-animation: .2s forwards hover-v linear;
+      animation: .2s forwards hover-v linear; }
   .footer-menu li.footer-menu__index-page a {
     color: #fff; }
     .footer-menu li.footer-menu__index-page a:before {
@@ -6269,7 +6270,7 @@ ul, li {
     .footer-menu li.footer-menu__index-page a:hover {
       color: #262626; }
   .footer-menu li.footer-menu__index-page.active a {
-    color: #fff; }
+    color: #262626; }
   .footer-menu li.active a {
     color: #fff; }
     .footer-menu li.active a:before {
@@ -6277,7 +6278,7 @@ ul, li {
       -ms-transform: scaleX(1);
       transform: scaleX(1);
       width: 100%;
-      opacity: .7; }
+      opacity: 1; }
     .footer-menu li.active a:hover:before, .footer-menu li.active a:focus:before {
       -webkit-animation: none;
       animation: none; }
@@ -6509,7 +6510,11 @@ ul, li {
     width: calc(50% - 16px); }
   .we-want-card__content {
     max-height: 180px;
-    overflow: auto; } }
+    overflow: auto; }
+  .footer--index .footer-menu li a:before {
+    background-color: #fff; }
+  .footer--index .footer-menu li a:hover {
+    color: #262626; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 1200px) {
