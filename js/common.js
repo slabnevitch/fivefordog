@@ -249,55 +249,12 @@ $(function() {
 				pagination: false,
 				// easing: "cubic-bezier(0.175, 0.885, 0.420, 1.310)",
 				afterMove: function(index) {
-					if(screen.width > 768){
-						var $currentSection = $('.portfolio-item').eq(index - 1);
-						
-						$currentSection
-							.find('.portfolio-item__title')
-							.removeClass('fadeOutDown')
-							.addClass('fadeInUp');
-
-						$currentSection
-							.find('.portfolio-item__description')
-							.removeClass('fadeOutUp')
-							.addClass('fadeInDown');
-
-						$currentSection
-							.find('.portfolio-item__logo')
-							.removeClass('zoomOutRight')
-							.addClass('zoomInRight');
-
-						console.log('section index ' + index);
 						range.noUiSlider.set(index);
 						$('.range-counter__current').text(index);
 						
 					}
-				},
-				 
-				 beforeMove: function(index) {
-				 	if(screen.width > 768){
-					 	var $currentSection = $('.portfolio-item').eq(index -1);
-
-					 	$currentSection
-					 		.siblings()
-							.find('.portfolio-item__title')
-							.removeClass('fadeInUp')
-							.addClass('fadeOutDown');
-
-						$currentSection
-							.siblings()
-							.find('.portfolio-item__description')
-							.removeClass('fadeInDown')
-							.addClass('fadeInDown fadeOutUp');
-
-						$currentSection
-							.siblings()
-							.find('.portfolio-item__logo')
-							.removeClass('zoomInRight')
-							.addClass('zoomOutRight');
-					}	
-				 }
 			});
+
 			$(".main").moveTo(1);
 
 			$('#range-forward').click(function() {
