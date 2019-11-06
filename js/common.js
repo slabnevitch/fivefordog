@@ -37,13 +37,8 @@ $(function() {
 				section:".about-page__sect",
 				scrollbars:false,
 				standardScrollElements: ".we-want-card",
-				// touchScroll:false,
-				// setHeights: false,
 				after: function(index, sections){
-			     	// alert(index);
-			     	console.log(sections[index].context);
-			     	// sections[index].context.classList.add('red');
-			     	console.log(index);
+
 				     $('.about-nav li').eq(index)
 				     .addClass('active')
 				     .siblings()
@@ -53,11 +48,9 @@ $(function() {
 				     if(index == 1){
 				     	$(sections[index].context).find(".to-animate").removeClass("zoomOutDown")
 				     	.addClass('zoomInUp');
-				     	console.log('ind = 1');
 
 				     	$(sections[index].context).find('.we-want-card')
 					     	.each(function(ind, elem) {
-					     		console.log(ind);
 					     		if(ind % 2 == 0){
 
 					     			$(elem).removeClass('fadeOutLeft')
@@ -81,7 +74,6 @@ $(function() {
 				     		.addClass('fadeInUp');
 
 				     	$(sections[index].context).find('.working-card').each(function(ind, elem) {
-				     		console.log(ind);
 				     		if(ind % 2 == 0){
 
 				     			$(elem).removeClass('fadeOutUp')
@@ -120,10 +112,7 @@ $(function() {
 
 	  	$('.about-arrow').click(function() {
 	  		var currentIndex = + $(this).closest('section').attr('data-section-index');
-	  		
-	  		console.log($(this).closest('.about-page__sect'));
-	  		console.log(currentIndex);
-	  		
+
 	  		$.scrollify.move(currentIndex + 1);
 	  	
 	  	});
@@ -133,9 +122,6 @@ $(function() {
 	  		$thParent = $th.closest('li'),
 	  		$thIndex = $thParent.index(),
 	  		thisSectionTop = $('[data-section-index='+$thIndex+']').offset().top;
-
-	  		console.log(thisSectionTop);
-	  		console.log('click');
 
 	  		$.scrollify.move($thIndex);
 
@@ -159,7 +145,6 @@ $(function() {
 					sectionTop = $this.offset().top - 200,
 					sectionBottom = sectionTop + $this.height();
 					
-					//console.log($this.outerHeight());
 					windScroll = $(window).scrollTop();
 
 						if(sectionTop < windScroll && sectionBottom > windScroll){
@@ -200,7 +185,6 @@ $(function() {
 
 			$('.range-counter__to').text(portfolioSectCount);
 
-			console.log(portfolioSectCount);
 
 			var range = document.getElementById('range');
 			var dragger = noUiSlider.create(range, {
@@ -267,8 +251,8 @@ $(function() {
 
 	}
 
-	if(document.querySelector(".ffd-form__select select") !== null){
-		$( ".ffd-form__select select" ).selectmenu();	
+	if(document.querySelector(".ffd-form__row--selects select") !== null){
+		$( ".ffd-form__row--selects select" ).selectmenu();	
 		
 	}
 	
